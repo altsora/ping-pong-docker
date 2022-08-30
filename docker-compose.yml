@@ -1,0 +1,40 @@
+version: '3'
+services:
+  # Service №1: ping
+  ping-service:
+    build:
+      context: ./ping-service
+      dockerfile: Dockerfile
+    container_name: ping-service-container
+    networks:
+      - my-ping-pong-net
+    ports:
+      - 7081:7081
+    expose:
+      - 7081
+    # Variables, view №1
+    environment:
+      - SERVER_PORT=7081
+      # Communicating using the container name
+      - PONG_URL=http://pong-service-container:7082/pong
+  # Service №2: pong
+  pong-service:
+    build:
+      context: ./pong-service
+      dockerfile: Dockerfile
+    container_name: pong-service-container
+    networks:
+      - my-ping-pong-net
+    ports:
+      - 7082:7082
+    expose:
+      - 7082
+    # Variables, view №2
+    environment:
+      SERVER_PORT: 7082
+      # Communicating using the container name
+      SERVICE_PING_URL: "http://ping-service-container:7081/ping"
+# Network
+networks:
+  my-ping-pong-net:
+    driver: bridge

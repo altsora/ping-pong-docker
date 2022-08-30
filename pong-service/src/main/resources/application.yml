@@ -1,2 +1,6 @@
 server:
   port: 7082
+
+service:
+  ping:
+    url: http://localhost:7081/pingz

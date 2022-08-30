@@ -1,5 +1,6 @@
 server:
   port: 7081
 
-pong-service:
-  url: http://localhost:7082/pong
+service:
+  pong:
+    url: ${PONG_URL:http://localhost:7082/pongz}
