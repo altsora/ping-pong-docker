@@ -1,0 +1,5 @@
+server:
+  port: 7081
+
+pong-service:
+  url: http://localhost:7082/pong
