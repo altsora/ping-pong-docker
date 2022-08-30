@@ -3,4 +3,4 @@ server:
 
 service:
   ping:
-    url: http://localhost:7081/pingz
+    url: http://localhost:7081/ping

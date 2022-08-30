@@ -3,4 +3,4 @@ server:
 
 service:
   pong:
-    url: ${PONG_URL:http://localhost:7082/pongz}
+    url: ${PONG_URL:http://localhost:7082/pong}
